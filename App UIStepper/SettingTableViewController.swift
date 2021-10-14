@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  SettingTableViewController.swift
 //  App UIStepper
 //
 //  Created by 江庸冊 on 2021/10/14.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class SettingTableViewController: UITableViewController {
     //漸層
     func setupGradientBackground() {
          let gradientLayer = CAGradientLayer()
@@ -54,7 +54,6 @@ class ViewController: UIViewController {
     //total旁的Label
     @IBOutlet weak var TotalLabel: UILabel!
     
-    
     //宣告設定玩具數量的初始值為0
     var itemTanjiroKamado: Int = 0
     var itemZenitsuAgatsuma: Int = 0
@@ -63,6 +62,7 @@ class ViewController: UIViewController {
     var itemKyojuroRengoku: Int = 0
     var itemShinobuKocho: Int = 0
     var itemKanaoTsuyuri: Int = 0
+    
     
     //取得stepper的值
     @IBAction func ChangeQTY(_ sender: UIStepper) {
@@ -82,48 +82,77 @@ class ViewController: UIViewController {
         KyojuroRengokuTextField.text = "\(itemKyojuroRengoku)"
         ShinobuKochoTextField.text = "\(itemShinobuKocho)"
         KanaoTsuyuriTextField.text = "\(itemKanaoTsuyuri)"
-        
-        
-        calculate()
+    }
+    
+    
+    
 
-    //將所有Stepper的 值＊金額加總，如果想同金額就是，例如 299 * (東西 ＋ 東西 )
-        func calculate(){
-            let sum = 668 * itemTanjiroKamado + 559 * itemZenitsuAgatsuma + 680 * itemInosukeHashibira + 3990 * itemNezukoKamado + 990 * itemKyojuroRengoku + 2900 * itemShinobuKocho + 6999 * itemKanaoTsuyuri
-            
-            //將金額顯示於totalLabel
-            TotalLabel.text = "\(sum)"
-        }
-    }
-    
-    
-    //清除所有值：將所有stepper, textField值, totalLabel設為0
-    //拉Button
-    @IBAction func clearAll(_ sender: UIButton) {
-        TanjiroKamadoStepper.value = 0
-        ZenitsuAgatsumaUIStepper.value = 0
-        InosukeHashibiraStepper.value = 0
-        NezukoKamadoStepper.value = 0
-        KyojuroRengokuStepper.value = 0
-        ShinobuKochoStepper.value = 0
-        KanaoTsuyuriStepper.value = 0
-        
-        
-        TanjiroKamadoTextField.text = "0"
-        ZenitsuAgatsumaTextField.text = "0"
-        InosukeHashibiraTextField.text = "0"
-        NezukoKamadoTextField.text = "0"
-        KyojuroRengokuTextField.text = "0"
-        ShinobuKochoTextField.text = "0"
-        KanaoTsuyuriTextField.text = "0"
-        TotalLabel.text = "0"
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupGradientBackground()
-        // Do any additional setup after loading the view.
+
+        // Uncomment the following line to preserve selection between presentations
+        // self.clearsSelectionOnViewWillAppear = false
+
+        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
+    // MARK: - Table view data source
+
+
+    /*
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+
+        // Configure the cell...
+
+        return cell
+    }
+    */
+
+    /*
+    // Override to support conditional editing of the table view.
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        // Return false if you do not want the specified item to be editable.
+        return true
+    }
+    */
+
+    /*
+    // Override to support editing the table view.
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            // Delete the row from the data source
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        } else if editingStyle == .insert {
+            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+        }    
+    }
+    */
+
+    /*
+    // Override to support rearranging the table view.
+    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
+
+    }
+    */
+
+    /*
+    // Override to support conditional rearranging of the table view.
+    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        // Return false if you do not want the item to be re-orderable.
+        return true
+    }
+    */
+
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+    }
+    */
 
 }
-
